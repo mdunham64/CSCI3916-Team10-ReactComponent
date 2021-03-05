@@ -7,7 +7,7 @@ let initialState = {
 
 const authReducer = (state = initialState, action) => {
 
-    var updated = Object.assign({}, state);
+    let updated = Object.assign({}, state);
 
     switch (action.type) {
         case constants.USER_LOGGEDIN:
