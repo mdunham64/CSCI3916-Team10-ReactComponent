@@ -21,7 +21,7 @@ export function submitLogin(data) {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
             mode: 'cors'
