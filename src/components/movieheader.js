@@ -12,18 +12,18 @@ class MovieHeader extends Component {
     render() {
         return (
             <div>
-                <Navbar expand="lg" bg="dark" variant="dark">
+                <Navbar expand="lg" bg="primary" variant="light">
                     <Navbar.Brand>
-                        Movie App
+                        Team Ten Transaction App
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav>
-                            <LinkContainer to="/movielist">
-                                <Nav.Link disabled={!this.props.loggedIn}>Movie List</Nav.Link>
+                            <LinkContainer to="/transaction">
+                                <Nav.Link disabled={!this.props.loggedIn}>New Transaction</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie.title : '')}>
-                                <Nav.Link disabled={!this.props.loggedIn}>Movie Detail</Nav.Link>
+                            <LinkContainer to={'/account/' + (this.props.selectedAccount  ? this.props.selectedAccount : '')}>
+                                <Nav.Link disabled={!this.props.loggedIn}>My Account</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/signin">
                                 <Nav.Link>{this.props.loggedIn ? <button onClick={this.logout.bind(this)}>Logout</button> : 'Login'}</Nav.Link>
