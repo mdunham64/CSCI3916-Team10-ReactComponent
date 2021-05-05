@@ -1,8 +1,7 @@
 import React, { Component} from 'react';
-//import { submitRegister } from '../actions/authActions'; ADD ACTIONS WE WANT FOR THIS PAGE SOON
 import { connect } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
-import {fetchAccount, setAccount} from "../actions/accountActions";
+import {fetchAccount} from "../actions/accountActions";
 
 class Confirmation extends Component {
 

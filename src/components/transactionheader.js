@@ -4,7 +4,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {connect} from 'react-redux';
 import {logoutUser} from "../actions/authActions";
 
-class MovieHeader extends Component {
+class transactionheader extends Component {
     logout() {
         this.props.dispatch(logoutUser());
     }
@@ -40,8 +40,7 @@ const mapStateToProps = state => {
     return {
         loggedIn : state.auth.loggedIn,
         username : state.auth.username,
-        selectedMovie: state.movie.selectedMovie
     }
 }
 
-export default connect(mapStateToProps)(MovieHeader);
+export default connect(mapStateToProps)(transactionheader);

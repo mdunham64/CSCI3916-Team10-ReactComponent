@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import MovieHeader from './components/movieheader';
-import MovieList from './components/movielist';
-import Movie from './components/movie';
+import Transactionheader from './components/transactionheader';
 import AccountPage from './components/accountpage';
 import Authentication from './components/authentication';
 import Transaction from './components/transaction';
@@ -18,13 +16,11 @@ function App() {
         <Provider store={store}>
           <HashRouter>
             <div>
-              <MovieHeader />
+              <Transactionheader />
               <Route exact path="/" render={()=><Signin />}/>
               <Route exact path="/account" render={()=><AccountPage />} />
               <Route exact path="/transaction" render={()=><Transaction />} />
-              <Route exact path="/movielist" render={()=><MovieList />}/>
               <Route exact path="/confirmation" render={()=><Confirmation />}/>
-              <Route exact path="/movie/:movieId" render={()=><Movie />}/>
               <Route path="/signin" render={()=><Authentication />}/>
             </div>
           </HashRouter>
