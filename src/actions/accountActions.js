@@ -21,10 +21,10 @@ export function setAccount(account) {
     }
 }
 
-export function fetchAccount(accountID) { //fix this entire function for our API
+export function fetchAccount() {
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/reviews/${accountID}?reviews=true`, {
+        return fetch(`${env.REACT_APP_API_URL}/transactions?username=${localStorage.getItem('username')}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

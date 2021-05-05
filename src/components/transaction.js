@@ -1,9 +1,15 @@
 import React, { Component} from 'react';
 import { submitTransaction } from '../actions/transactionActions';
 import { connect } from 'react-redux';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, ListGroup } from 'react-bootstrap';
+import {transactionFetched} from "../actions/transactionActions";
 
 class Transaction extends Component {
+
+    componentDidMount() {
+        const {dispatch} = this.props;
+        dispatch(transactionFetched());
+    }
 
     constructor(props){
         super(props);
@@ -12,13 +18,12 @@ class Transaction extends Component {
         this.transaction = this.transaction.bind(this);
         this.state = {
             details:{
-                Sender_name: localStorage.getItem('username'),
-                recipient_name: '',
-                amount: ''
+                sender: localStorage.getItem('username'),
+                receiver_name: '',
+                paymentAmount: '',
             }
         };
     }
-
 
     updateDetails(event){
         let updateDetails = Object.assign({}, this.state.details);
@@ -38,19 +43,21 @@ class Transaction extends Component {
     render(){
         return (
             <Form className='form-horizontal'>
-                <Form.Group controlId="Recipient Name" size="lg">
-                    <Form.Label>Recipient Name</Form.Label>
-                    <Form.Control onChange={this.updateDetails} value={this.state.details.name} type="text" placeholder="Recipient Name" />
+                <Form.Group controlId="receiver_name">
+                    <Form.Label>receiver_name</Form.Label>
+                    <Form.Control onChange={this.updateDetails} value={this.state.details.receiver_name} type="text" placeholder="Recipient Name" />
                     <Form.Text className="text-muted">
                         This is the Username registered with their application account.
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group controlId="Amount" size="lg">
-                    <Form.Label>Amount</Form.Label>
-                    <Form.Control onChange={this.updateDetails} value={this.state.details.username} type="text" placeholder="Amount" />
+                <Form.Group controlId="paymentAmount">
+                    <Form.Label>paymentAmount</Form.Label>
+                    <Form.Control onChange={this.updateDetails} value={this.state.details.paymentAmount} type="number" placeholder="Amount" />
                 </Form.Group>
                 <Button onClick={this.transaction}>Send</Button>
+                <ListGroup>
+                </ListGroup>
             </Form>
         )
     }

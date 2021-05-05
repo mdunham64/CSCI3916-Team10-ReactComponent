@@ -6,18 +6,18 @@ import {fetchAccount, setAccount} from "../actions/accountActions";
 
 class Confirmation extends Component {
 
-    /*
+
         componentDidMount() {
             const {dispatch} = this.props;
             dispatch(fetchAccount(this.props.selectedAccount));
         }
-    */
+
     render() {
-        /*
+
         const DetailInfo = () => {
             if (!this.props.selectedAccount) {
                 return <div>Loading....</div>
-            }*/
+            }
 
         return (
             <div style={{background : "lightgreen"}}>
@@ -31,11 +31,11 @@ class Confirmation extends Component {
             </div>
         )
     }
-    /*
+
     return (
         <DetailInfo />
     )
-}*/
+}
 }
 
 const mapStateToProps = state => {

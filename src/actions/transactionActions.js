@@ -1,18 +1,18 @@
 import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env'
-import {submitLogin} from "./authActions";
 
-function transactionFetched(transaction) {
+
+export function transactionFetched(transaction) {
     return {
-        type: actionTypes.FETCH_ACCOUNT,
-        selectedAccount: transaction
+        type: actionTypes.FETCH_TRANSACTION,
+        selectedTransaction: transaction
     }
 }
 
 function transactionSet(transaction) {
     return {
-        type: actionTypes.SET_ACCOUNT,
-        selectedAccount: transaction
+        type: actionTypes.SET_TRANSACTION,
+        selectedTransaction: transaction
     }
 }
 
@@ -25,11 +25,12 @@ export function setTransaction(transaction) {
 export function submitTransaction(data) { //submit our transaction
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/signup`, {
+        return fetch(`${env.REACT_APP_API_URL}/transactions`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
             },
             body: JSON.stringify(data),
             mode: 'cors'
@@ -37,7 +38,8 @@ export function submitTransaction(data) { //submit our transaction
             if (!response.ok) {
                 throw Error(response.statusText);
             }
-            return response.json()
+            console.log(JSON.stringify(response));
+            dispatch(setTransaction(JSON.stringify(response)));
         }).catch((e) => console.log(e));
     }
 }
