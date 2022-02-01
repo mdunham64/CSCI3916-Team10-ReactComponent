@@ -2,4 +2,4 @@
 
 
 link to website:
-https://csci3916-hw5-macgyver.herokuapp.com
+https://geofencing-project-macgyver.herokuapp.com/
